@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_point"
+    app:startDestination="@id/slashPoint">
+
+    <fragment
+        android:id="@+id/slashPoint"
+        android:name="com.crisis.ui.common.SlashPoint"
+        android:label="SlashPoint"
+        tools:layout="@layout/slpash_point">
+        <action
+            android:id="@+id/action_slashPoint_to_loginPart"
+            app:destination="@id/loginPart" />
+        <action
+            android:id="@+id/action_slashPoint_to_ngoFrag"
+            app:destination="@id/ngoFrag" />
+        <action
+            android:id="@+id/action_slashPoint_to_userFrag"
+            app:destination="@id/userFrag" />
+        <action
+            android:id="@+id/action_slashPoint_to_volunteer"
+            app:destination="@id/volunteer" />
+        <action
+            android:id="@+id/action_slashPoint_to_admin"
+            app:destination="@id/admin" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPart"
+        android:name="com.crisis.ui.common.LoginPart"
+        android:label="LoginPart"
+        tools:layout="@layout/login_part">
+        <action
+            android:id="@+id/action_loginPart_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_loginPart_to_admin"
+            app:destination="@id/admin" />
+        <action
+            android:id="@+id/action_loginPart_to_userFrag"
+            app:destination="@id/userFrag" />
+        <action
+            android:id="@+id/action_loginPart_to_ngoFrag"
+            app:destination="@id/ngoFrag" />
+        <action
+            android:id="@+id/action_loginPart_to_volunteer"
+            app:destination="@id/volunteer" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.crisis.ui.common.SignUp"
+        android:label="SignUp"
+        tools:layout="@layout/signup_part" />
+    <fragment
+        android:id="@+id/admin"
+        android:name="com.crisis.ui.admin.Admin"
+        android:label="Admin"
+        tools:layout="@layout/admin_part">
+        <action
+            android:id="@+id/action_admin_to_addNgo"
+            app:destination="@id/addNgo" />
+        <action
+            android:id="@+id/action_admin_to_sendMessages"
+            app:destination="@id/sendMessages" />
+        <action
+            android:id="@+id/action_admin_to_locationPoint"
+            app:destination="@id/locationPoint" />
+        <action
+            android:id="@+id/action_admin_to_sos"
+            app:destination="@id/sos" />
+        <action
+            android:id="@+id/action_admin_to_addHubs2"
+            app:destination="@id/addHubs" />
+        <action
+            android:id="@+id/action_admin_to_viewUsersList"
+            app:destination="@id/viewUsersList" />
+        <action
+            android:id="@+id/action_admin_to_videoComplaints"
+            app:destination="@id/videoComplaints" />
+        <action
+            android:id="@+id/action_admin_to_aiReport"
+            app:destination="@id/aiReport" />
+        <action
+            android:id="@+id/action_admin_to_viewSafeZone"
+            app:destination="@id/viewSafeZone" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNgo"
+        android:name="com.crisis.ui.admin.functions.AddNgo"
+        android:label="AddNgo"
+        tools:layout="@layout/signup_part" />
+    <fragment
+        android:id="@+id/userFrag"
+        android:name="com.crisis.ui.user.UserFrag"
+        android:label="UserFrag"
+        tools:layout="@layout/user_main">
+        <action
+            android:id="@+id/action_userFrag_to_addComplaint"
+            app:destination="@id/addComplaint" />
+        <action
+            android:id="@+id/action_userFrag_to_viewComplaint"
+            app:destination="@id/viewComplaint" />
+        <action
+            android:id="@+id/action_userFrag_to_sosComplaints"
+            app:destination="@id/sosComplaints" />
+        <action
+            android:id="@+id/action_userFrag_to_viewSafeZone"
+            app:destination="@id/viewSafeZone" />
+        <action
+            android:id="@+id/action_userFrag_to_sosComplaints2"
+            app:destination="@id/sosComplaints" />
+        <action
+            android:id="@+id/action_userFrag_to_addVideoComplaint"
+            app:destination="@id/addVideoComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/ngoFrag"
+        android:name="com.crisis.ui.ngo.NgoFrag"
+        android:label="NgoFrag"
+        tools:layout="@layout/ngo_layout">
+        <action
+            android:id="@+id/action_ngoFrag_to_viewComplaintPoint"
+            app:destination="@id/viewComplaintPoint" />
+        <action
+            android:id="@+id/action_ngoFrag_to_viewAcceptedComplaints"
+            app:destination="@id/viewAcceptedComplaints" />
+        <action
+            android:id="@+id/action_ngoFrag_to_addVolunteer"
+            app:destination="@id/addVolunteer" />
+        <action
+            android:id="@+id/action_ngoFrag_to_sos"
+            app:destination="@id/sos" />
+        <action
+            android:id="@+id/action_ngoFrag_to_viewSafeZone"
+            app:destination="@id/viewSafeZone" />
+        <action
+            android:id="@+id/action_ngoFrag_to_viewUsersList"
+            app:destination="@id/viewUsersList" />
+    </fragment>
+    <fragment
+        android:id="@+id/volunteer"
+        android:name="com.crisis.ui.volunteer.Volunteer"
+        android:label="Volunteer"
+        tools:layout="@layout/volunteer_main">
+        <action
+            android:id="@+id/action_volunteer_to_viewComplaintsWithOut"
+            app:destination="@id/viewComplaintsWithOut" />
+        <action
+            android:id="@+id/action_volunteer_to_viewAcceptedComplaints"
+            app:destination="@id/viewAcceptedComplaints" />
+        <action
+            android:id="@+id/action_volunteer_to_sosComplaints"
+            app:destination="@id/sosComplaints" />
+        <action
+            android:id="@+id/action_volunteer_to_viewSafeZone"
+            app:destination="@id/viewSafeZone" />
+    </fragment>
+    <fragment
+        android:id="@+id/addComplaint"
+        android:name="com.crisis.ui.user.functions.AddComplaint"
+        android:label="AddComplaint"
+        tools:layout="@layout/add_complaint" />
+    <fragment
+        android:id="@+id/sendMessages"
+        android:name="com.crisis.ui.admin.functions.SendMessages"
+        android:label="SendMessages"
+        tools:layout="@layout/message_box" />
+    <fragment
+        android:id="@+id/viewComplaint"
+        android:name="com.crisis.ui.user.functions.ViewComplaints"
+        android:label="ViewComplaint"
+        tools:layout="@layout/view_complaint">
+        <action
+            android:id="@+id/action_viewComplaint_to_centralFunctionsOfComplaint"
+            app:destination="@id/centralFunctionsOfComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewComplaintPoint"
+        android:name="com.crisis.ui.ngo.functions.ViewComplaintPoint"
+        android:label="ViewComplaintPoint"
+        tools:layout="@layout/view_complaint">
+        <action
+            android:id="@+id/action_viewComplaintPoint_to_centralFunctionsOfComplaint"
+            app:destination="@id/centralFunctionsOfComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/centralFunctionsOfComplaint"
+        android:name="com.crisis.ui.commonPath.CentralFunctionsOfComplaint"
+        android:label="CentralFunctionsOfComplaint"
+        tools:layout="@layout/central_functions">
+        <action
+            android:id="@+id/action_centralFunctionsOfComplaint_to_locationPoint"
+            app:destination="@id/locationPoint" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationPoint"
+        android:name="com.crisis.ui.commonPath.LocationPoint"
+        android:label="LocationPoint"
+        tools:layout="@layout/location_point" />
+    <fragment
+        android:id="@+id/viewAcceptedComplaints"
+        android:name="com.crisis.ui.ngo.functions.ViewAcceptedComplaints"
+        android:label="ViewAcceptedComplaints"
+        tools:layout="@layout/accepted_list">
+        <action
+            android:id="@+id/action_viewAcceptedComplaints_to_centralFunctionsOfComplaint"
+            app:destination="@id/centralFunctionsOfComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/addVolunteer"
+        android:name="com.crisis.ui.ngo.functions.AddVolunteer"
+        android:label="AddVolunteer"
+        tools:layout="@layout/signup_part" />
+    <fragment
+        android:id="@+id/viewComplaintsWithOut"
+        android:name="com.crisis.ui.volunteer.functions.ViewComplaintsWithOut"
+        android:label="ViewComplaintsWithOut"
+        tools:layout="@layout/view_complaint">
+        <action
+            android:id="@+id/action_viewComplaintsWithOut_to_centralFunctionsOfComplaint"
+            app:destination="@id/centralFunctionsOfComplaint" />
+    </fragment>
+    <fragment
+        android:id="@+id/sosComplaints"
+        android:name="com.crisis.ui.user.functions.SosComplaints"
+        android:label="SosComplaints"
+        tools:layout="@layout/sos_point" />
+    <fragment
+        android:id="@+id/sos"
+        tools:layout="@layout/sos_point"
+        android:name="com.crisis.ui.admin.functions.Sos"
+        android:label="Sos" />
+    <fragment
+        tools:layout="@layout/add_hubs"
+        android:id="@+id/addHubs"
+        android:name="com.crisis.ui.admin.functions.AddHubs"
+        android:label="AddHubs" >
+        <action
+            android:id="@+id/action_addHubs_to_getLocationPoint"
+            app:destination="@id/getLocationPoint" />
+    </fragment>
+    <fragment
+        android:id="@+id/getLocationPoint"
+        tools:layout="@layout/get_location"
+        android:name="com.crisis.ui.admin.functions.funView.GetLocationPoint"
+        android:label="GetLocationPoint" />
+    <fragment
+        android:id="@+id/viewSafeZone"
+        tools:layout="@layout/safe_zones"
+        android:name="com.crisis.ui.user.functions.ViewSafeZone"
+        android:label="ViewSafeZone" />
+    <fragment
+        tools:layout="@layout/add_video"
+        android:id="@+id/addVideoComplaint"
+        android:name="com.crisis.ui.user.functions.AddVideoComplaint"
+        android:label="AddVideoComplaint" />
+    <fragment
+        android:id="@+id/viewUsersList"
+        android:name="com.crisis.ui.admin.functions.ViewUsersList"
+        android:label="ViewUsersList"
+        tools:layout="@layout/user_list_layout">
+        <argument
+            android:name="typeOF"
+            app:argType="string"
+            android:defaultValue="NGO" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoComplaints"
+        android:name="com.crisis.ui.admin.functions.VideoComplaints"
+        android:label="VideoComplaints"
+        tools:layout="@layout/video_complaints" />
+    <fragment
+        android:id="@+id/aiReport"
+        android:name="com.crisis.ui.admin.functions.AiReportFragment"
+        android:label="AiReport"
+        tools:layout="@layout/ai_report_layout" />
+</navigation>

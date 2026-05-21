@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10sp"
+    app:cardElevation="10sp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:text="Add Your Video"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="10sp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/playerPoint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pickThat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10sp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10sp"
+            app:cardElevation="5sp"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10sp"
+                android:src="@drawable/gallery_2" />
+        </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:id="@+id/pointerLess"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            app:cardBackgroundColor="@color/colorPoint"
+            app:cardCornerRadius="10sp"
+
+            app:cardElevation="2sp"
+            app:cardUseCompatPadding="true">
+
+            <EditText
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="start|bottom"
+                android:textSize="15sp"
+                android:hint="Description"
+                android:padding="10sp"
+                android:textColorHint="#C5FFFFFF"
+                android:textColor="@color/white"
+                tools:ignore="Autofill,HardcodedText,TextFields"
+                />
+        </androidx.cardview.widget.CardView>
+        <ImageView
+
+            android:id="@+id/sendVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="10sp"
+            android:background="@drawable/curve"
+            android:padding="10sp"
+            android:src="@drawable/send_svg"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription"
+            />
+    </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
