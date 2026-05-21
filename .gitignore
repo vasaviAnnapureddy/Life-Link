@@ -1,0 +1,27 @@
+# Android
+*.iml
+.gradle/
+local.properties
+.idea/
+.DS_Store
+build/
+captures/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+.venv
+venv/
+env/
+staticfiles/
+media/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
