@@ -2,6 +2,19 @@
 
 A full-stack disaster response platform built with **Android (Kotlin)** + **Django (Python)** featuring an autonomous **Gemini AI Crisis Triage Agent**.
 
+## 🌐 **LIVE DEMO**
+👉 **[https://life-link-ao4j.onrender.com/](https://life-link-ao4j.onrender.com/)**
+
+**Demo Credentials:**
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@crisis.com | admin123 |
+| NGO | ngo1@crisis.com | ngo123 |
+| Volunteer | vol1@crisis.com | vol123 |
+| User | user1@crisis.com | user123 |
+
+Click "Login to Demo" to access the web dashboard!
+
 ---
 
 ## Features
