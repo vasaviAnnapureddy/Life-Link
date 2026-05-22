@@ -1,2 +1,1 @@
-release: python manage.py migrate && python seed_data.py
 web: gunicorn project.wsgi --log-file -
