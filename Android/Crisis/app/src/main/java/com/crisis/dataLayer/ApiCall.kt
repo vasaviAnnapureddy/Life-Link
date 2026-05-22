@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiCall {
 
-     const val BASEURL = "http://192.168.1.14:5000/"
+     const val BASEURL = "https://life-link-ao4j.onrender.com/"
 
     private val client = okhttp3.OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
