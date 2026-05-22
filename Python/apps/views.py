@@ -712,8 +712,109 @@ def updateAComplaintWithFeeBack(request):
             id=request.GET.get('id',0)
             feedBack=request.GET.get('feedBack','')
             complaint=Complaint.objects.filter(id=int(id)).last()
-            complaint.  volunterWrite=str(feedBack)     
+            complaint.  volunterWrite=str(feedBack)
             complaint.save()
         except Exception as e:
             commonJson['message']=str(e)
         return JsonResponse(commonJson)
+
+
+def submit_video_complaint(request):
+    """Web form to submit video complaints - accessible via browser"""
+    from django.http import HttpResponse
+    html = """<!DOCTYPE html>
+<html>
+<head>
+    <title>LifeLink - Report Video Complaint</title>
+    <style>
+        body { font-family: Arial; background: #f0f4ff; margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #1A237E; text-align: center; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; color: #333; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        textarea { resize: vertical; min-height: 80px; }
+        button { width: 100%; padding: 12px; margin-top: 20px; background: #1A237E; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #0d1b5e; }
+        .success { color: green; padding: 10px; background: #e8f5e9; border-radius: 5px; margin-bottom: 20px; display: none; }
+        .error { color: red; padding: 10px; background: #ffebee; border-radius: 5px; margin-bottom: 20px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Report Crisis Video</h1>
+        <p style="text-align: center; color: #666;">Paste a video URL or describe an incident</p>
+        <div class="success" id="success">✓ Video complaint submitted!</div>
+        <div class="error" id="error"></div>
+        <form id="videoForm">
+            <label>Your User ID:</label>
+            <input type="text" id="userid" placeholder="user1@crisis.com" required>
+            <label>Video URL:</label>
+            <input type="url" id="videourl" placeholder="https://example.com/video.mp4" required>
+            <label>Description:</label>
+            <textarea id="description" placeholder="What happened?" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('videoForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const data = {
+                userid: document.getElementById('userid').value,
+                videourl: document.getElementById('videourl').value,
+                description: document.getElementById('description').value
+            };
+            try {
+                const response = await fetch('/submit_video_complaint_api/', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (result.error) {
+                    document.getElementById('error').textContent = '✗ ' + result.message;
+                    document.getElementById('error').style.display = 'block';
+                } else {
+                    document.getElementById('videoForm').reset();
+                    document.getElementById('success').style.display = 'block';
+                    setTimeout(() => { document.getElementById('success').style.display = 'none'; }, 3000);
+                }
+            } catch (err) {
+                document.getElementById('error').textContent = '✗ Error: ' + err.message;
+                document.getElementById('error').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>"""
+    return HttpResponse(html, content_type="text/html")
+
+
+@csrf_exempt
+def submit_video_complaint_api(request):
+    """API endpoint to save video complaint from web form"""
+    commonJson = {"error": True, "message": "Video saved successfully"}
+
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            userid = data.get('userid', '').strip()
+            videourl = data.get('videourl', '').strip()
+            description = data.get('description', '').strip()
+
+            if not userid or not videourl:
+                commonJson["message"] = "User ID and video URL are required"
+                return JsonResponse(commonJson)
+
+            # Create VideoUser record
+            video = VideoUser(userid=userid, path=videourl, description=description)
+            video.save()
+
+            commonJson["error"] = False
+            commonJson["message"] = f"Video complaint submitted! ID: {video.id}"
+            return JsonResponse(commonJson)
+
+        except Exception as e:
+            commonJson["message"] = str(e)
+            return JsonResponse(commonJson)
+
+    return JsonResponse({"error": True, "message": "GET /submit_video_complaint_web/ for form"})

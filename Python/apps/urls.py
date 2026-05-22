@@ -53,5 +53,7 @@ urlpatterns = [
     path('getUploadedWithUserDetails/',view=views.getUploadedWithUserDetails,name="getUploadedWithUserDetails"),
     path('feedBack/',view=views.updateAComplaintWithFeeBack,name='feedBack'),
     path('aiCrisisAgent/', view=views.aiCrisisAgent, name='aiCrisisAgent'),
+    path('submit_video_complaint_web/', view=views.submit_video_complaint, name='submit_video_complaint'),
+    path('submit_video_complaint_api/', view=views.submit_video_complaint_api, name='submit_video_complaint_api'),
 ]
 
